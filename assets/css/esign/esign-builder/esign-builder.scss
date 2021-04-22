@@ -1,0 +1,410 @@
+.esignBuilder {
+  margin-top: 96px;
+  text-align: left !important;
+  position: relative;
+
+  &--step3 {
+    &.esignBuilder--loading {
+      max-height: 100vh;
+      min-height: 100vh;
+      overflow: hidden;
+
+      .loader {
+        display: grid;
+      }
+    }
+
+    .loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 4;
+
+      display: none;
+      place-content: center;
+      background-color: #fff;
+    }
+  }
+
+  header {
+    position: relative !important;
+    margin-top: 0 !important;
+  }
+
+  .main-wrapper {
+    padding: 0 !important;
+  }
+
+  .add-recipeit {
+    margin: 0 !important;
+  }
+
+  &__title {
+    font-family: Sarabun, sans-serif !important;
+    font-weight: 600 !important;
+    margin: 25px 0 !important;
+    font-size: 28px !important;
+  }
+
+  .alert-warning {
+    color: #f8b425;
+    background-color: #fdeac3;
+  }
+
+  .action-envlo {
+    & > ul {
+      display: grid;
+      row-gap: 10px;
+    }
+
+    li .dropdown-toggle:after {
+      content: "";
+      position: relative;
+    }
+  }
+
+  &__submit,
+  &__addForm {
+    cursor: pointer !important;
+  }
+
+  .btn {
+    &:disabled {
+      cursor: not-allowed !important;
+    }
+  }
+
+  &__submit {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    padding: 6px 12px !important;
+    border-radius: 4px !important;
+    font-family: inherit !important;
+
+    &.btn-success {
+      background-color: #28a745;
+      color: #fff;
+    }
+  }
+
+  .left-wnvofrm {
+    margin-bottom: 135px;
+  }
+
+  &__docPreview {
+    display: flex;
+    position: relative;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    cursor: zoom-in;
+
+    canvas {
+      width: 250px;
+      border: 0;
+      border-radius: 0;
+    }
+
+    &--completed {
+      .esignBuilder__docInfo {
+        .esignBuilder__docTitle,
+        .esignBuilder__docPageCount {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__docInfo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 10px 15px;
+    background-color: #f7f7f7;
+  }
+
+  &__docTitle {
+    font-family: "Open Sans", sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    user-select: none;
+    font-weight: 600;
+    margin: 0;
+    font-size: 13px;
+    color: #797979;
+    display: none;
+  }
+
+  &__docPageCount {
+    font-size: 12px;
+    color: #797979;
+    display: none;
+  }
+
+  &__uploadProgress {
+    opacity: 1;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 16px;
+    width: 120px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    overflow: hidden;
+
+    span {
+      background: linear-gradient(to bottom, #666, #444);
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      opacity: 0;
+    }
+
+    &--completed {
+      span {
+        opacity: 1;
+        width: 100%;
+        transition: 300ms ease-in-out;
+      }
+    }
+  }
+
+  &__uploadProgressCheck {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    &--completed {
+      svg {
+        opacity: 1;
+        transform: translateY(0);
+        transition: 300ms ease-in-out;
+      }
+    }
+  }
+
+  &__modal {
+    canvas {
+      display: block;
+      margin: 15px auto;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 0;
+    }
+  }
+
+  .document-page {
+    position: relative;
+
+    &:first-child {
+      margin-top: 0 !important;
+    }
+  }
+
+  .menu_item.ui-draggable {
+    padding: 0;
+    z-index: 1;
+
+    .subData {
+      background-color: var(--color);
+      padding: 5px 10px;
+      font-family: monospace;
+      border-radius: 3px;
+    }
+  }
+
+  .docPage {
+    // width: max-content;
+    // position: relative;
+  }
+
+  .main-pdf-render__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  &__footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1;
+    padding: 15px;
+    border-top: 1px solid #d9d9d9;
+  }
+
+  .sidebar-fields {
+    padding: 10px;
+  }
+
+  .sidebar_group {
+    margin-left: 0 !important;
+  }
+
+  .btn {
+    text-transform: none;
+  }
+
+  &__recipientSelect {
+    .btn {
+      width: 100%;
+    }
+  }
+
+  #recipientsSelect {
+    .fa {
+      color: var(--color);
+    }
+  }
+
+  .swatch:after {
+    background-color: var(--color);
+  }
+
+  &__field {
+    position: absolute !important;
+
+    .esignBuilder__fieldOptions {
+      position: absolute;
+      top: -32px;
+      display: flex;
+      align-items: center;
+      background-color: #333;
+      display: none;
+    }
+
+    .esignBuilder__fieldClose {
+      color: #fff;
+      height: 30px;
+      width: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+  }
+
+  &__optionsSidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #ececec;
+    padding: 10px;
+    z-index: 1031;
+    border-left: 1px solid #d9d9d9;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+
+    &--show {
+      transform: translateX(0);
+    }
+
+    &[data-field-type="field"] {
+      .options,
+      .note,
+      .formula {
+        display: none;
+      }
+    }
+
+    &[data-field-type="options"] {
+      .options {
+        display: block;
+      }
+
+      .note,
+      .formula {
+        display: none;
+      }
+    }
+
+    &[data-field-type="formula"] {
+      .formula {
+        display: block;
+      }
+
+      .note,
+      .options {
+        display: none;
+      }
+    }
+
+    &[data-field-type="note"] {
+      .note {
+        display: block;
+      }
+
+      .formula,
+      .options {
+        display: none;
+      }
+    }
+
+    .footer {
+      background-color: #ececec;
+    }
+
+    .esignBuilder__optionInput {
+      margin-top: 0.5rem !important;
+      margin-bottom: 0.5rem !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-control {
+      height: 30px;
+    }
+  }
+}
+
+#fieldsSidebar {
+  overflow-x: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  padding-top: 100px;
+}
+
+.main-pdf-render__container {
+  margin-left: 220px;
+  margin-bottom: 100px;
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+#main-pdf-render {
+  position: relative;
+}
